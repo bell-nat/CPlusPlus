@@ -2,34 +2,33 @@
 #include "Io.h"
 #include <iostream>
 #include <cmath>
-
 #include "Extension.h"
 
-Task1::Task1() { _io = new Io(); }
+using namespace std;
 
-Task1::~Task1() { delete _io; }
+Task1::Task1() = default;
+
+Task1::~Task1() = default;
 
 auto Task1::Query1() -> void
 {
-	const auto first = _io->GetInt();
-	const auto second = _io->GetInt();
-
-    wcout << L"Сумма: " << Sum(first, second) << Extension::Endl;
-    wcout << L"Разность: " << Subtraction(first, second) << Extension::Endl;
-    wcout << L"Произведение: " << Multy(first, second) << Extension::Endl;
-    wcout << L"Частное: " << Division(first, second) << Extension::Endl;
-    wcout << Extension::Endl;
+	const auto first = Io::GetInt();
+	const auto second = Io::GetInt();
+    Io::Output(L"Сумма: " + to_wstring(Sum(first, second)));
+    Io::Output(L"Разность: " + to_wstring(Subtraction(first, second)));
+    Io::Output(L"Произведение: " + to_wstring(Multy(first, second)));
+    Io::Output(L"Частное: " + to_wstring(Division(first, second)));    
+    Io::Output(L"");
 }
 
 auto Task1::Query2() -> void
 {
-	const auto number = _io->GetInt();
+	const auto number = Io::GetInt();
     auto multiplier = 2;
-
-    wcout << L"квадрат: " << Pow(number, multiplier++) << Extension::Endl;
-    wcout << L"куб: " << pow(number, multiplier++) << Extension::Endl;
-    wcout << L"4 степень: " << pow(number, multiplier) << Extension::Endl;
-    wcout << Extension::Endl;
+    Io::Output(L"квадрат: " + to_wstring(Pow(number, multiplier++)));
+    Io::Output(L"куб: " + to_wstring(Pow(number, multiplier++)));
+    Io::Output(L"4 степень: " + to_wstring(Pow(number, multiplier)));
+    Io::Output(L"");
 }
 
 auto Task1::Sum(int first, int second) -> int

@@ -9,7 +9,7 @@
 Io::Io()
 = default;
 
-auto Io::SetLanguage() -> void
+auto Io::SetLocale() -> void
 {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
@@ -27,10 +27,9 @@ auto Io::GetInt(const int min, const int max) -> int
     return ConvertToInt(source, min, max);
 }
 
-auto Io::Output(wstring text) -> void
+auto Io::Output(const wstring& text) -> void
 {   
     wcout << text << Extension::Endl;
-
 }
 
 

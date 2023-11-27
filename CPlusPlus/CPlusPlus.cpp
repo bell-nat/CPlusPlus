@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include <io.h>
 #include <fcntl.h>
 
 #include "Extension.h"
+#include "Io.h"
 #include "Task1.h"
 #include "Task2.h"
 #include "Task3.h"
@@ -16,7 +16,7 @@ using namespace std;
 
 int main()
 {
-    Io::SetLanguage();
+    Io::SetLocale();
 
     const auto task1 = new Task1();
     task1->Query1();

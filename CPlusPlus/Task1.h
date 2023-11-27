@@ -1,9 +1,7 @@
 #pragma once
-#include "Io.h"
 
 class Task1
 {
-	Io* _io;
 public:
 	Task1();
 	~Task1();
