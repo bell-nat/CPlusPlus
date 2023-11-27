@@ -5,5 +5,5 @@ class Extension
 {
 public:
 	Extension();
-	const static std::string Endl;
+	const static std::wstring Endl;
 };

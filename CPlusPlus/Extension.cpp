@@ -3,4 +3,4 @@
 Extension::Extension()
 = default;
 
-const std::string Extension::Endl = "\r\n";
+const std::wstring Extension::Endl = L"\r\n";

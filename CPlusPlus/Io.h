@@ -7,9 +7,11 @@ class Io
 {
 public:
 	Io();
-	auto GetString()->string;
+	static auto SetLanguage() -> void;
+	auto GetString()-> wstring;
 	auto GetInt(const int min = NULL, const int max = NULL) -> int;
+	auto Output(wstring text) -> void;
 private:
-	auto Input() -> string;
-	auto ConvertToInt(const string& source, int min = NULL, int max = NULL) -> int;
+	auto Input() -> wstring;
+	auto ConvertToInt(const wstring& source, int min = NULL, int max = NULL) -> int;
 };
