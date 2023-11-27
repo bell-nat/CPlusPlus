@@ -22,6 +22,53 @@ Task2::Task2()
 
 auto Task2::Query2() -> void
 {
+	const auto a = Io::GetDouble();
+	const auto b = Io::GetDouble();
+	const auto c = Io::GetDouble();
+
+	if(a == b == c)
+	{
+		Io::Output(L"Треугольник равносторонний");
+		return;
+	}
+
+	if(a == b || b == c || a == c)
+	{
+		Io::Output(L"Треугольник равнобедренный");
+		return;
+	}
+
+
+	if(a + b < c || a + c < b || b + c < a)
+	{
+		Io::Output(L"Фигура не является треугольником");
+		return;
+	}
+
+	if (a + b == c || a + c == b || b + c == a)
+	{
+		Io::Output(L"Треугольник вырожденный");
+		return;
+	}
+
+	if
+	(
+		pow(a, 2) + pow(b, 2) == pow(c, 2) ||
+		pow(b, 2) + pow(c, 2) == pow(a, 2) ||
+		pow(c, 2) + pow(a, 2) == pow(b, 2)
+	)
+	{
+		Io::Output(L"Треугольник прямоугольный");
+		return;
+	}
+
+	if (a <= 0 || b <= 0 || c <= 0)
+	{
+		Io::Output(L"некорректные входные данные");
+		return;
+	}
+	
+	Io::Output(L"Произвольный прямоугольный");
 }
 
 auto Task2::Query3() -> void
@@ -48,7 +95,7 @@ auto Task2::Query3() -> void
 	auto sumDay = day;
 	for (int i = 1; i < month; i++)
 	{
-		if (i == 2 && yearType == 1)
+		if (i == 2 && yearType == 1 && day != 29)
 		{
 			sumDay++;
 		}

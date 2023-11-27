@@ -26,13 +26,27 @@ auto Io::GetInt(const int min, const int max) -> int
     int result;
     do
     {        
-        if(TryParse(Input(), result, min, max))
+        if(TryParseInt(Input(), result, min, max))
+        {
+            return result;
+        }
+        Output(L"Значение вне диапазоне значений, повторите ввод");        
+    } while (true);
+}
+
+auto Io::GetDouble() -> double
+{
+    double result;
+    do
+    {
+        if (TryParseDouble(Input(), result))
         {
             return result;
         }
         Output(L"Повторите ввод");
     } while (true);
 }
+
 
 auto Io::Output(const wstring& text) -> void
 {   
@@ -55,24 +69,35 @@ auto Io::Input() -> wstring
     return source;
 }
 
-auto Io::TryParse(const wstring& source, int& result, const int min, const int max) -> bool
+auto Io::TryParseInt(const wstring& source, int& result, const int min, const int max) -> bool
 {
-    do
+    try
     {
-        try
+        const auto digital = stoi(source);
+        if ((min == NULL || digital >= min) && (max == NULL || digital <= max))
         {
-            const auto digital = stoi(source);
-            if ((min == NULL || digital >= min) && (max == NULL || digital <= max))
-            {
-                result = digital;
-                return true;
-            }
-            return false;
-        }
-        catch (const exception&)
-        {
-            wcout << L"Не число! " << L"Повторите ввод" << Extension::Endl;
-            return false;
-        }
-    } while (true);
+            result = digital;
+            return true;
+        }        
+    }
+    catch (const exception&)
+    {
+        Output(L"Не число! " + source + L"Повторите ввод");
+    }
+    return false;
+}
+
+auto Io::TryParseDouble(const wstring& source, double& result) -> bool
+{
+    auto isParse = false;
+    try
+    {
+        result = stod(source);
+        isParse = true;
+    }
+    catch (const exception&)
+    {
+        Output(L"Не число! " + source + L"Повторите ввод");
+    }
+    return isParse;
 }
