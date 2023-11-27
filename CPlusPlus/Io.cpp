@@ -1,8 +1,6 @@
 #include "Io.h"
-
 #include <corecrt_io.h>
 #include <fcntl.h>
-
 #include "Extension.h"
 #include <iostream>
 
@@ -30,7 +28,7 @@ auto Io::GetInt(const int min, const int max) -> int
         {
             return result;
         }
-        Output(L"Значение вне диапазоне значений, повторите ввод");        
+        Output(L"Значение находится за пределами разрешенного диапазона, повторите ввод");        
     } while (true);
 }
 
