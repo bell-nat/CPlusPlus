@@ -1,32 +1,35 @@
 #include "Task1.h"
+#include "Io.h"
 #include <iostream>
 #include <cmath>
 
-Task1::Task1()
-{
-}
+#include "Extension.h"
+
+Task1::Task1() { _io = new Io(); }
+
+Task1::~Task1() { delete _io; }
 
 auto Task1::Query1() -> void
 {
-    auto first = GetInt();
-    auto second = GetInt();
+	const auto first = _io->GetInt();
+	const auto second = _io->GetInt();
 
-    cout << "Сумма: " << Sum(first, second) << endl;
-    cout << "Разность: " << Subtraction(first, second) << endl;
-    cout << "Произведение: " << Multy(first, second) << endl;
-    cout << "Частное: " << Division(first, second) << endl;
-    cout << endl;
+    cout << "РЎСѓРјРјР°: " << Sum(first, second) << Extension::Endl;
+    cout << "Р Р°Р·РЅРѕСЃС‚СЊ: " << Subtraction(first, second) << Extension::Endl;
+    cout << "РџСЂРѕРёР·РІРµРґРµРЅРёРµ: " << Multy(first, second) << Extension::Endl;
+    cout << "Р§Р°СЃС‚РЅРѕРµ: " << Division(first, second) << Extension::Endl;
+    cout << Extension::Endl;
 }
 
 auto Task1::Query2() -> void
 {
-    auto number = GetInt();
+	const auto number = _io->GetInt();
     auto multiplier = 2;
 
-    cout << "Квадрат числа: " << Pow(number, multiplier++) << endl;
-    cout << "Куб числа: " << pow(number, multiplier++) << endl;
-    cout << "Четвёртая степень числа: " << pow(number, multiplier) << endl;
-    cout << endl;
+    cout << "РєРІР°РґСЂР°С‚: " << Pow(number, multiplier++) << Extension::Endl;
+    cout << "РєСѓР±: " << pow(number, multiplier++) << Extension::Endl;
+    cout << "4 СЃС‚РµРїРµРЅСЊ: " << pow(number, multiplier) << Extension::Endl;
+    cout << Extension::Endl;
 }
 
 auto Task1::Sum(int first, int second) -> int
@@ -52,31 +55,4 @@ auto Task1::Division(int first, int second) -> float
 auto Task1::Pow(int number, int multiplier) -> int
 {
     return pow(number, multiplier);
-}
-
-auto Task1::GetInt() -> int
-{
-    auto numberSource = InputString();
-    return ConvertToInt(numberSource);
-}
-
-auto Task1::InputString() -> string
-{
-    string source;
-    cout << "Введите число: ";
-    cin >> source;
-    cout << endl << "Вы ввели: " << source << endl << endl;
-    return source;
-}
-
-auto Task1::ConvertToInt(string source) -> int
-{
-    try
-    {
-        return stoi(source);
-    }
-    catch (const exception&)
-    {
-        throw new exception("Ошибка конвертации в число!");
-    }
 }

@@ -1,12 +1,12 @@
 #pragma once
-#include <string>
-
-using namespace std;
+#include "Io.h"
 
 class Task1
 {
+	Io* _io;
 public:
 	Task1();
+	~Task1();
 	auto Query1() -> void;
 	auto Query2() -> void;
 private:
@@ -15,7 +15,4 @@ private:
 	auto Multy(int first, int second) -> int;
 	auto Division(int first, int second) -> float;
 	auto Pow(int number, int multiplier) -> int;
-	auto GetInt() -> int;
-	auto InputString() -> string;
-	auto ConvertToInt(string source) -> int;
 };

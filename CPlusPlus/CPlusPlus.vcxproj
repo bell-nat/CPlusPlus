@@ -104,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,12 +130,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CPlusPlus.cpp" />
+    <ClCompile Include="Extension.cpp" />
+    <ClCompile Include="Io.cpp" />
     <ClCompile Include="Task1.cpp" />
     <ClCompile Include="Task2.cpp" />
     <ClCompile Include="Task3.cpp" />
     <ClCompile Include="Task4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Extension.h" />
+    <ClInclude Include="Io.h" />
     <ClInclude Include="Task1.h" />
     <ClInclude Include="Task2.h" />
     <ClInclude Include="Task3.h" />
