@@ -1,9 +1,9 @@
 #include "Task4.h"
 
-Task4::Task4()
+auto Task4::Query1() -> void
 {
 }
 
-auto Task4::Start() -> void
+auto Task4::Query2() -> void
 {
 }

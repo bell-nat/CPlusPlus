@@ -15,5 +15,5 @@ public:
 	static auto Output(const string& source) -> void;
 private:
 	static auto Input() -> wstring;
-	static auto ConvertToInt(const wstring& source, int min = NULL, int max = NULL) -> int;
+	static auto TryParse(const wstring& source, int& result, int min = NULL, int max = NULL) -> bool;
 };

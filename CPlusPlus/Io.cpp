@@ -1,6 +1,5 @@
 #include "Io.h"
 
-#include <codecvt>
 #include <corecrt_io.h>
 #include <fcntl.h>
 
@@ -24,8 +23,15 @@ auto Io::GetString() -> wstring
 
 auto Io::GetInt(const int min, const int max) -> int
 {
-    const auto source = Input();
-    return ConvertToInt(source, min, max);
+    int result;
+    do
+    {        
+        if(TryParse(Input(), result, min, max))
+        {
+            return result;
+        }
+        Output(L"Повторите ввод");
+    } while (true);
 }
 
 auto Io::Output(const wstring& text) -> void
@@ -43,28 +49,30 @@ auto Io::Output(const string& source) -> void
 auto Io::Input() -> wstring
 {
     wstring source;
-    wcout << L"Введите число: ";
+    Output(L"Введите число: ");
     wcin >> source;
-    wcout << L"Вы ввели: " << source << Extension::Endl;
+    Output(L"Вы ввели: " + source);
     return source;
 }
 
-auto Io::ConvertToInt(const wstring& source, const int min, const int max) -> int
+auto Io::TryParse(const wstring& source, int& result, const int min, const int max) -> bool
 {
     do
     {
         try
         {
             const auto digital = stoi(source);
-	        if ((min == NULL || digital >= min) && (max == NULL || digital <= max))
+            if ((min == NULL || digital >= min) && (max == NULL || digital <= max))
             {
-                return digital;
+                result = digital;
+                return true;
             }
-            wcout << "Повторите ввод" << Extension::Endl;
+            return false;
         }
         catch (const exception&)
         {
-            wcout << "Не число!" << "Повторите ввод" << Extension::Endl;
+            wcout << L"Не число! " << L"Повторите ввод" << Extension::Endl;
+            return false;
         }
-    } while (true);   
+    } while (true);
 }

@@ -26,18 +26,21 @@ int main()
     wcout << Extension::Endl;
 
     const auto task2 = new Task2();
-    task2->Start();
+    task2->Query2();
+    task2->Query3();
     delete task2;
 
     wcout << Extension::Endl;
 
     const auto task3 = new Task3();
-    task3->Start();
+    task3->Query2();
+    task3->Query3();
     delete task3;
 
     wcout << Extension::Endl;
 
     const auto task4 = new Task4();
-    task4->Start();
+    task4->Query1();
+    task4->Query2();
     delete task4;
 }

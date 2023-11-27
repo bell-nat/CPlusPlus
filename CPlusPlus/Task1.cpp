@@ -5,10 +5,6 @@
 
 using namespace std;
 
-Task1::Task1() = default;
-
-Task1::~Task1() = default;
-
 auto Task1::Query1() -> void
 {
     const auto first = Io::GetInt();
