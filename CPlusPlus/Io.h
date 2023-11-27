@@ -8,7 +8,7 @@ class Io
 {	
 public:
 	Io();
-	static auto SetLocale() -> void;
+	
 	static auto GetString()-> wstring;
 	static auto GetInt(int min = NULL, int max = NULL) -> int;
 	static auto Output(const wstring& text) -> void;
