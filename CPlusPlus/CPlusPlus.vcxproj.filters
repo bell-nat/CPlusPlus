@@ -13,48 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Extensions">
+      <UniqueIdentifier>{f622f121-2dca-4831-b266-f7e476cf3d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Extensions">
+      <UniqueIdentifier>{0af32f7f-3eee-44bf-9cbd-ee085f69d7a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Tasks">
+      <UniqueIdentifier>{de0ec93f-51b3-4090-9b3a-f18026cd3b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Tasks">
+      <UniqueIdentifier>{9bb57b25-d965-4668-a83b-856db46dd090}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CPlusPlus.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Task2.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Task1.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Task3.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Task4.cpp">
+    <ClCompile Include="Program.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Io.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Extension.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="Task1.cpp">
+      <Filter>Исходные файлы\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Task2.cpp">
+      <Filter>Исходные файлы\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Task3.cpp">
+      <Filter>Исходные файлы\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Task4.cpp">
+      <Filter>Исходные файлы\Tasks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Task2.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Task3.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Task4.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Task1.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Io.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Extension.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="Task4.h">
+      <Filter>Файлы заголовков\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1.h">
+      <Filter>Файлы заголовков\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="Task2.h">
+      <Filter>Файлы заголовков\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="Task3.h">
+      <Filter>Файлы заголовков\Tasks</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

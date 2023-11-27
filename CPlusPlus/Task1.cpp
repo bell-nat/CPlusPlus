@@ -1,8 +1,7 @@
 #include "Task1.h"
 #include "Io.h"
-#include <iostream>
 #include <cmath>
-#include "Extension.h"
+#include <format>
 
 using namespace std;
 
@@ -12,18 +11,18 @@ Task1::~Task1() = default;
 
 auto Task1::Query1() -> void
 {
-	const auto first = Io::GetInt();
-	const auto second = Io::GetInt();
+    const auto first = Io::GetInt();
+    const auto second = Io::GetInt();
     Io::Output(L"Сумма: " + to_wstring(Sum(first, second)));
     Io::Output(L"Разность: " + to_wstring(Subtraction(first, second)));
-    Io::Output(L"Произведение: " + to_wstring(Multy(first, second)));
-    Io::Output(L"Частное: " + to_wstring(Division(first, second)));    
+    Io::Output(L"Произведение: " + to_wstring(Multiplication(first, second)));
+    Io::Output(L"Частное: " + to_wstring(Division(first, second)));
     Io::Output(L"");
 }
 
 auto Task1::Query2() -> void
 {
-	const auto number = Io::GetInt();
+    const auto number = Io::GetInt();
     auto multiplier = 2;
     Io::Output(L"квадрат: " + to_wstring(Pow(number, multiplier++)));
     Io::Output(L"куб: " + to_wstring(Pow(number, multiplier++)));
@@ -41,14 +40,14 @@ auto Task1::Subtraction(int first, int second) -> int
     return first - second;
 }
 
-auto Task1::Multy(int first, int second) -> int
+auto Task1::Multiplication(int first, int second) -> int
 {
     return first * second;
 }
 
 auto Task1::Division(int first, int second) -> float
 {
-    return (float) first / second;
+    return static_cast<float>(first) / static_cast<float>(second);
 }
 
 auto Task1::Pow(int number, int multiplier) -> int

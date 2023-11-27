@@ -1,5 +1,6 @@
 #include "Io.h"
 
+#include <codecvt>
 #include <corecrt_io.h>
 #include <fcntl.h>
 
@@ -29,6 +30,12 @@ auto Io::GetInt(const int min, const int max) -> int
 
 auto Io::Output(const wstring& text) -> void
 {   
+    wcout << text << Extension::Endl;
+}
+
+auto Io::Output(const string& source) -> void
+{
+	const wstring text(source.begin(), source.end());
     wcout << text << Extension::Endl;
 }
 

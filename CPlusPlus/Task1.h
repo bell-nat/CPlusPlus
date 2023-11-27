@@ -10,7 +10,7 @@ public:
 private:
 	auto Sum(int first, int second) -> int;
 	auto Subtraction(int first, int second) -> int;
-	auto Multy(int first, int second) -> int;
+	auto Multiplication(int first, int second) -> int;
 	auto Division(int first, int second) -> float;
 	auto Pow(int number, int multiplier) -> int;
 };
