@@ -1,4 +1,8 @@
 #pragma once
+#include <list>
+#include <string_view>
+#include <vector>
+
 class Task3
 {
 public:
@@ -18,4 +22,9 @@ public:
 	/// </summary>
 	auto Query3() -> void;
 private:
+	auto GetDegree(int digital, int number) -> int;
+	auto GetDivisor(int digital) -> int;
+	auto GetDivisors(int digital) -> std::vector<int>;
+	auto CheckPrime(int digital) -> bool;
+	auto Join(const std::vector<int>& items, const std::string& sep) -> std::string;
 };
