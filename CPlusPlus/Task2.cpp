@@ -22,8 +22,11 @@ Task2::Task2()
 
 auto Task2::Query2() -> void
 {
+	Io::Output(L"Введите сторону \"A\": ", false);
 	const auto a = Io::GetDouble();
+	Io::Output(L"Введите сторону \"B\": ", false);
 	const auto b = Io::GetDouble();
+	Io::Output(L"Введите сторону \"C\": ", false);
 	const auto c = Io::GetDouble();
 
 	if(a == b == c)
@@ -73,8 +76,11 @@ auto Task2::Query2() -> void
 
 auto Task2::Query3() -> void
 {
+	Io::Output(L"Введите номер дня: ", false);
 	const auto day = Io::GetInt(1, 31);
+	Io::Output(L"Введите номер месяца: ", false);
 	const auto month = Io::GetInt(1, 12);
+	Io::Output(L"Укажите тип года. невисокосный/високосный(0/1): ", false);
 	const auto yearType = Io::GetInt(0, 1);
 
 	auto maxDay = _month[month];
@@ -104,7 +110,7 @@ auto Task2::Query3() -> void
 
 	const auto result = format
 	(
-		L"По дате: {}.{} {}. Дней с 1 для: {}",
+		L"По дате: {}.{} {}. Дней с первого дня: {}",
 		day,
 		month,
 		yearType == 0 ? L"не високосный год" : L"високосный год",

@@ -8,6 +8,7 @@ using namespace std;
 
 auto Task3::Query2() -> void
 {
+	Io::Output(L"Введите число, не меньшее двух: ", false);
 	auto digital = Io::GetInt(2);
 	auto divisor = GetDivisor(digital);
 
@@ -20,14 +21,16 @@ auto Task3::Query2() -> void
 
 	const vector<int> divisors = GetDivisors(digital);
 	const auto resultDivisors = Extension::Join(divisors, ", ");
+	Io::Output(L"Список всех натуральных делителей данного числа: ",false);
 	Io::Output(resultDivisors);
 
-	bool isPrime = CheckPrime(digital);
-	Io::Output(L"");	
+	const bool isPrime = CheckPrime(digital);
+	Io::Output(isPrime ? L"Число простое" : L"Число не является простым");
 }
 
 auto Task3::Query3() -> void
 {
+	Io::Output(L"Введите натуральное число \"N\": ", false);
 	const auto digital = Io::GetInt(2);
 	auto degree2 = GetDegree(digital, 2);
 	Io::Output(format(L"{} - ближайшая степень двойки для числа: {}", degree2, digital));
@@ -42,15 +45,12 @@ auto Task3::GetDegree(int digital, int number) -> int
 	const auto area = (log(digital) / log(number));
 	const auto minDegree = static_cast<int>(area);
 	const auto maxDegree = minDegree + 1;
-	const auto min = static_cast<int>(pow(digital, minDegree));
-	const auto max = static_cast<int>(pow(digital, maxDegree));
+	const auto min = static_cast<int>(pow(number, minDegree));
+	const auto max = static_cast<int>(pow(number, maxDegree));
 	const auto minDifference = digital - min;
 	const auto maxDifference = max - digital;
 	return minDifference < maxDifference ? minDegree : maxDegree;
 }
-
-
-
 
 auto Task3::GetDivisor(int digital) -> int
 {
@@ -82,5 +82,5 @@ auto Task3::GetDivisors(int digital) -> vector<int>
 auto Task3::CheckPrime(int digital) -> bool
 {
 	const vector<int> divisors = GetDivisors(digital);
-	return divisors.size() > 2;
+	return divisors.size() == 2;
 }

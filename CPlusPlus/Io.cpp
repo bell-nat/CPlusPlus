@@ -46,24 +46,26 @@ auto Io::GetDouble() -> double
 }
 
 
-auto Io::Output(const wstring& text) -> void
+auto Io::Output(const wstring& text, bool isNewLine) -> void
 {   
-    wcout << text << Extension::Endl;
+    wcout << text;
+    if(isNewLine)
+    {
+        wcout << Extension::Endl;
+    }
 }
 
-auto Io::Output(const string& source) -> void
+auto Io::Output(const string& source, bool isNewLine) -> void
 {
 	const wstring text(source.begin(), source.end());
-    wcout << text << Extension::Endl;
+    Output(text, isNewLine);
 }
 
 
 auto Io::Input() -> wstring
 {
     wstring source;
-    Output(L"Введите число: ");
     wcin >> source;
-    Output(L"Вы ввели: " + source);
     return source;
 }
 
@@ -80,7 +82,7 @@ auto Io::TryParseInt(const wstring& source, int& result, const int min, const in
     }
     catch (const exception&)
     {
-        Output(L"Не число! " + source + L"Повторите ввод");
+        Output(L"Не число! " + source + L" Повторите ввод");
     }
     return false;
 }
@@ -95,7 +97,7 @@ auto Io::TryParseDouble(const wstring& source, double& result) -> bool
     }
     catch (const exception&)
     {
-        Output(L"Не число! " + source + L"Повторите ввод");
+        Output(L"Не число! " + source + L" Повторите ввод");
     }
     return isParse;
 }
