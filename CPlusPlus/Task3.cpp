@@ -1,7 +1,7 @@
 #include "Task3.h"
 #include <format>
-#include <sstream>
 
+#include "Extension.h"
 #include "Io.h"
 
 using namespace std;
@@ -19,7 +19,7 @@ auto Task3::Query2() -> void
 	));
 
 	const vector<int> divisors = GetDivisors(digital);
-	const auto resultDivisors = Join(divisors, ", ");
+	const auto resultDivisors = Extension::Join(divisors, ", ");
 	Io::Output(resultDivisors);
 
 	bool isPrime = CheckPrime(digital);
@@ -83,18 +83,4 @@ auto Task3::CheckPrime(int digital) -> bool
 {
 	const vector<int> divisors = GetDivisors(digital);
 	return divisors.size() > 2;
-}
-
-auto Task3::Join(const vector<int>& items, const string& sep) -> string
-{
-	ostringstream oss;
-	const auto last = items.end() - 1;
-	// Iterate through the first to penultimate items appending the separator.
-	for (typename vector<int>::const_iterator p = items.begin(); p != last; ++p)
-	{
-		oss << *p << sep;
-	}
-	// Join the last item without a separator.
-	oss << *last;
-	return oss.str();
 }
